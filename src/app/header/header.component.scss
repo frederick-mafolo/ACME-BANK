@@ -1,0 +1,29 @@
+// .header {
+//     // &__navManu {
+//     // }
+//     &__nav-list {
+//       align-self: right !important;
+//       @include sbfont($h7, $white !important);
+//       color: $white !important;
+//     }
+//     &__greenText {
+//       // color: $color-secondary-8 !important;
+//       @include sbfont($h6, $color-secondary-8);
+//       font-family: "OpenSansRegular" !important;
+//     }
+  
+//     &__name {
+//       @include sbfont($h6, $white);
+//       font-size: 18 !important;
+//     }
+//   }
+.headerTitle{
+    color:white;
+}
+
+.bg-light {
+   
+    background: rgb(231,14,14);
+    background: linear-gradient(90deg, rgba(231,14,14,1) 35%, rgba(73,66,73,1) 100%);
+}
+

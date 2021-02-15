@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ACME-BANK"
+    }
+  },
+  "defaultProject": "ACME-BANK",
+  "cli": {
+    "analytics": false
+  }
 }

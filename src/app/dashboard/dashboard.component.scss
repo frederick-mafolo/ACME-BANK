@@ -1,0 +1,23 @@
+caption {
+    caption-side: top;
+    color:red;
+    background:white !important; 
+    padding-left: 10px;
+
+}
+table {
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: white;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f1ebeb;
+}
+.balanceRow{ 
+    background:white !important; 
+}
+thead{
+    background:white !important; 
+
+}

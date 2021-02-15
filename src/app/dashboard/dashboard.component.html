@@ -1,0 +1,32 @@
+
+<div class=" container table-responsive">
+
+<table class="table table-striped">
+  <caption> <h4>Account List</h4></caption>
+  <thead >
+    <tr>
+ 
+      <th scope="col">Account Number</th>
+      <th scope="col">Account Type</th>
+      <th scope="col">Balance</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody >
+    <tr *ngFor="let elements of accountNewList">
+   
+      <td>{{elements.account_number}}</td>
+      <td>{{elements.account_type}}</td>
+      <td>ZAR {{elements.balance}}</td>
+      <td>  <button type="button" [disabled]="elements.isDisabled" [ngClass]="[elements.account_type== 'savings' && elements.balance <= 0 ? btnClass.inactiveBtn: elements.account_type=='cheque'  && elements.balance <= -500 ? btnClass.inactiveBtn: btnClass.activeBtn  ]" (click)="withdraw()">Withdraw</button></td>
+    </tr>
+
+    <tr class="balanceRow">
+      <td colspan="2"><h5>Balance</h5></td>
+    
+      <td colspan="2"><h5>ZAR {{sum}}</h5></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
