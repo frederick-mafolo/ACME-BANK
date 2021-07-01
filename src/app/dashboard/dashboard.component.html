@@ -18,7 +18,7 @@
       <td>{{elements.account_number}}</td>
       <td>{{elements.account_type}}</td>
       <td>ZAR {{elements.balance}}</td>
-      <td>  <button type="button" [disabled]="elements.isDisabled" [ngClass]="[elements.account_type== 'savings' && elements.balance <= 0 ? btnClass.inactiveBtn: elements.account_type=='cheque'  && elements.balance <= -500 ? btnClass.inactiveBtn: btnClass.activeBtn  ]" (click)="withdraw()">Withdraw</button></td>
+      <td>  <button type="button" [disabled]="elements.isDisabled" [ngClass]="[elements.account_type== 'savings' && elements.balance <= savingsOverdraft ? btnClass.inactiveBtn: elements.account_type=='cheque'  && elements.balance <= chequeOverdraft ? btnClass.inactiveBtn: btnClass.activeBtn  ]" (click)="withdraw()">Withdraw</button></td>
     </tr>
 
     <tr class="balanceRow">

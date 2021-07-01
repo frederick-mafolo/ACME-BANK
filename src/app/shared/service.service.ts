@@ -14,15 +14,10 @@ export class ServiceService {
   private endpoint = 'accounts';
   public accountList: Array<Custom> = [];
   constructor(private http: HttpClient) { }
-  configUrl = 'assets/config.json';
-// getConfig() {
-//   return this.http.get(this.configUrl);
 
-  
-// }
 
 getAccounts() {
-  // now returns an Observable of Config
+
   return this.http.get<Custom>(`${this.baseURL}/${this.endpoint}`)
   .pipe(
     catchError(this.handleError<Custom>('getAccounts'))
@@ -32,11 +27,10 @@ getAccounts() {
 private handleError<T>(operation = 'operation', result?: T) {
   return (error: any): Observable<T> => {
 
-    console.error(error); // log to console instead
+    console.error(error); 
 
     this.log(`${operation} failed: ${error.message}`);
 
-    // Let the app keep running by returning an empty result.
     return of(result as T);
   };
 }

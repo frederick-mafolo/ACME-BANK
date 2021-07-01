@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Custom, CustomNew } from '../shared/accountModel';
 import { ServiceService } from '../shared/service.service';
 
@@ -7,23 +7,27 @@ import { ServiceService } from '../shared/service.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit,OnDestroy {
   public btnClass = {
     activeBtn: 'btn btn-success',
     inactiveBtn: 'btn btn-outline-secondary',
   };
 
-  public isDisabled: boolean;
-  public sum=0;
-  public accountList: Array<Custom> = [];
-  public accountNewList: Array<CustomNew> = [];
+   isDisabled: boolean;
+   sum=0;
+   chequeOverdraft=-500
+  savingsOverdraft=0
+   accountList ;
+   accountNewList: Array<CustomNew> = [];
 
   constructor(private serviceService:ServiceService) {}
 
   ngOnInit(): void {
     this.serviceService.getAccounts ()
     .subscribe(data => {
-      this.accountList.push(data)
+
+      this.accountList=data;
+  
       for (let i = 0; i < this.accountList.length; i++) {
         if (
           (this.accountList[i].account_type == 'savings' &&
@@ -43,10 +47,16 @@ export class DashboardComponent implements OnInit {
   
         this.sum += Number(this.accountList[i].balance);
       }
+
+      console.log(this.accountNewList)
     });
   }
 
   withdraw() {
     alert('Success');
+  }
+
+  ngOnDestroy(){
+    this.serviceService.getAccounts().subscribe();
   }
 }
